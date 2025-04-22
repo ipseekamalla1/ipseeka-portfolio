@@ -1,10 +1,17 @@
 import AnimatedSection  from "@/components/AnimatedSection";
 
+
 export default function Home() {
   return (
     <div>
   
       <main>
+
+
+
+
+
+
         <AnimatedSection id="contact">
           <h1 className="text-9xl">Contact</h1>
         </AnimatedSection>
