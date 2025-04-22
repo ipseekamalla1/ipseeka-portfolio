@@ -1,8 +1,10 @@
-"use client"
-import React from 'react'
+'use client';
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-const links=[
+
+// Links data with names and hrefs
+const links = [
   {
     name: "Home",
     href: "/",
@@ -13,7 +15,7 @@ const links=[
   },
   {
     name: "Resume",
-    href: "#Resume",
+    href: "#resume",
   },
   {
     name: "Contact",
@@ -23,23 +25,45 @@ const links=[
     name: "Sample",
     href: "/sample",
   }
-]
+];
 
 const Navbar = () => {
-  const pathname=usePathname()
-  return (
-   <nav className='flex gap-8'>
-   {links.map((link,index) => 
-   {return <Link href={link.href} key={index} 
-   className={`${link.href===pathname && "text-amber-600 border-b-2 border-accent"}
-   capitalize font-medium hover:text-amber-600 transition-all duration-300
-   ease-in-out
-    `}
-   >{link.name}
-   </Link>}
-  
-  )}
-   </nav>
-)};
+  const pathname = usePathname();
 
-export default Navbar
+  // Scroll to section function for internal links
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <nav className='flex gap-8'>
+      {links.map((link, index) => {
+        // Check if the link is an anchor (#) link to handle scroll
+        const isInternalLink = link.href.startsWith('#');
+
+        return (
+          <Link
+            href={link.href}
+            key={index}
+            // Handle scroll behavior for internal anchor links
+            onClick={(e) => {
+              if (isInternalLink) {
+                e.preventDefault(); // Prevent default link behavior
+                scrollToSection(link.href.replace('#', '')); // Scroll to section
+              }
+            }}
+            className={`${link.href === pathname && !isInternalLink ? "text-amber-600 border-b-2 border-accent" : ""}
+              capitalize font-medium hover:text-amber-600 transition-all duration-300 ease-in-out`}
+          >
+            {link.name}
+          </Link>
+        );
+      })}
+    </nav>
+  );
+};
+
+export default Navbar;
