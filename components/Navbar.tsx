@@ -9,15 +9,19 @@ const links=[
   },
   {
     name: "About",
-    href: "/about",
+    href: "#about",
   },
   {
     name: "Resume",
-    href: "/Resume",
+    href: "#Resume",
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "#contact",
+  },
+  {
+    name: "Sample",
+    href: "/sample",
   }
 ]
 

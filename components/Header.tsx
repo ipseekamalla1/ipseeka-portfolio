@@ -14,8 +14,9 @@ const Header = () => {
         </h1>
         </Link>
         <div className='hidden xl:flex items-center'><Navbar/>
-        <Link href="/contact"></Link>
-        <Button>Hire Me</Button>
+        <Link href="/contact" className="ml-8">
+    <Button className='bg-amber-900 text-2xl text-amber-50'>Hire Me</Button>
+  </Link>
         </div>
         </div>
         <div className="xl:hidden">Mobile Nav</div>
