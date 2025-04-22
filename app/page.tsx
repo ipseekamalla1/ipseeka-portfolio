@@ -2,13 +2,14 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { FiDownload } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import Social from "@/components/Social";
+import Photo from "@/components/Photo"
 export default function Home() {
   return (
     <div className="h-full">
       <div className="container mx-auto h-full">
         <main>
           <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
-            <div className="text-center xl:text-left">
+            <div className="text-center xl:text-left order-2 xl:order-none">
               <span className="text-amber-900 text-2xl">Web Developer</span>
               <h1 className="hero-h1 mb-6">
                 Hello I am
@@ -37,7 +38,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div><Photo/></div>
+            <div className="order-1 xl:order-none mb-8 xl:pt-8 xl:pb-24"><Photo/></div>
           </div>
 
           <AnimatedSection id="contact">
