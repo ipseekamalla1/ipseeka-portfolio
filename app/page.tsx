@@ -1,8 +1,10 @@
+'use client'
 import AnimatedSection from "@/components/AnimatedSection";
 import { FiDownload } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import Social from "@/components/Social";
 import Photo from "@/components/Photo"
+import Stats from "@/components/Stats";
 export default function Home() {
   return (
     <div className="h-full">
@@ -38,8 +40,13 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="order-1 xl:order-none mb-8 xl:pt-8 xl:pb-24"><Photo/></div>
+            <div className="order-1 xl:order-none xl:pt-8 xl:pb-24"><Photo/></div>
           </div>
+
+          
+            <Stats/>
+          
+
 
           <AnimatedSection id="contact">
             <h1 className="text-9xl">Contact</h1>
