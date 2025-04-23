@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Social from "@/components/Social";
 import Photo from "@/components/Photo"
 import Stats from "@/components/Stats";
+import Skills from "@/components/Skills";
 export default function Home() {
   return (
     <div className="h-full">
@@ -49,7 +50,7 @@ export default function Home() {
 
 
           <AnimatedSection id="contact">
-            <h1 className="text-9xl">Contact</h1>
+            <h1 className="text-9xl"><Skills/></h1>
           </AnimatedSection>
 
           <AnimatedSection id="resume">
