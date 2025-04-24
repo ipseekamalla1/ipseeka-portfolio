@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Education from './Education';
 import Skills from './Skills';
 import Experience from './Experience';
-import ProjectSection from './ProjectSection';
 
 const Resume = () => {
   const [activeTab, setActiveTab] = useState<'education' | 'skills' | 'experience'>('education');
