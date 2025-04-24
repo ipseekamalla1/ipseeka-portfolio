@@ -5,7 +5,7 @@ import { FaTerminal } from 'react-icons/fa';
 
 const experienceData = [
   {
-    role: "QA Intern",
+    role: "QA",
     company: "Novelty Technology, Nepal",
     duration: "June 2022 – Dec 2022",
     description: "Performed manual testing, reported bugs, and assisted in improving QA documentation.",

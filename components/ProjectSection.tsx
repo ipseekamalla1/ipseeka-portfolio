@@ -14,29 +14,31 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Banking App",
-    image: "/assets/photo.png",
-    link: "https://github.com/yourusername/bank-app",
+    title: " Capitawave Banking Website",
+    image: "/assets/bank-app.png",
+    link: "https://github.com/ipseekamalla1/capitawave",
     demo: "https://bank-app-demo.vercel.app",
     description:
       "A full-stack banking app with account management, transactions, and analytics dashboard. Built using Next.js, Prisma, and PostgreSQL.",
   },
   {
-    title: "Garbage Classifier",
-    image: "/assets/photo.png",
-    link: "https://github.com/yourusername/garbage-classifier",
-    demo: "https://garbage-classifier-demo.vercel.app",
+    title: "AuroHome Ecommerce Website",
+    image: "/assets/ecom-app.png",
+    link: "https://github.com/ipseekamalla1/aurahome", // Update if needed
+    demo: "https://aurohome-demo.vercel.app", // Replace with your actual demo URL if different
     description:
-      "A React app using machine learning to classify garbage into recyclable categories. Model based on Inception architecture.",
+      "A feature-rich ecommerce website built with PHP and Laravel, supporting product browsing, user authentication, cart management, and order processing. Designed with a focus on scalability and user-friendly experience.",
   },
+  
   {
-    title: "Book Store",
-    image: "/assets/photo.png",
-    link: "https://github.com/yourusername/bookstore",
-    demo: "https://bookstore-demo.vercel.app",
+    title: "Care Pulse Medical Clinic",
+    image: "/assets/medical-app.png",
+    link: "https://github.com/ipseekamalla1/carepulse",
+    demo: "https://carepulse-demo.vercel.app", // Replace with your actual live demo if different
     description:
-      "An online bookstore built with WooCommerce, custom plugin development, and SEO optimization.",
+      "A full-stack medical web app built with Next.js and Appwrite that allows patients to register, book appointments, and manage their profiles. Includes secure authentication, real-time database integration, and a responsive user interface.",
   },
+  
 ];
 
 const typingText = {

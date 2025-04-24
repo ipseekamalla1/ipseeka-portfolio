@@ -90,7 +90,7 @@ const Contact = () => {
               <p className="text-sm font-light text-gray-400 mb-1">Phone</p>
               <div className="flex items-center space-x-3 text-white">
                 <FaPhone className="text-gray-400" />
-                <span>+1 234 567 8900</span>
+                <span>+1 365 355 3550</span>
               </div>
             </div>
 
@@ -98,7 +98,7 @@ const Contact = () => {
               <p className="text-sm font-light text-gray-400 mb-1">Email</p>
               <div className="flex items-center space-x-3 text-white">
                 <FaEnvelope className="text-gray-400" />
-                <span>yourname@example.com</span>
+                <span>ipseeka.malla1@gmail.com</span>
               </div>
             </div>
 
@@ -106,7 +106,7 @@ const Contact = () => {
               <p className="text-sm font-light text-gray-400 mb-1">Address</p>
               <div className="flex items-center space-x-3 text-white">
                 <FaMapMarkerAlt className="text-gray-400" />
-                <span>123 Street, City, Country</span>
+                <span>Milton,Ontario</span>
               </div>
             </div>
           </div>
@@ -121,16 +121,9 @@ const Contact = () => {
             >
               <FaFacebookF className="text-xl text-white" />
             </a>
+           
             <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-gray-800 hover:bg-amber-400 transition"
-            >
-              <FaTwitter className="text-xl text-white" />
-            </a>
-            <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/ipseeka-malla-971b23190/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-gray-800 hover:bg-amber-400 transition"

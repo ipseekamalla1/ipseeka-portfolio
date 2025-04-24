@@ -5,10 +5,11 @@ import { motion } from 'framer-motion';
 
 const links = [
   { name: "Home", href: "/" },
-  { name: "About", href: "#about" },
+
+
   { name: "Resume", href: "#resume" },
   { name: "Contact", href: "#contact" },
-  { name: "Sample", href: "/sample" },
+
 ];
 
 const MobileNav = ({ onClose }: { onClose: () => void }) => {
