@@ -65,10 +65,10 @@ const itemVariants = {
 
 const Skills: React.FC = () => {
   return (
-    <section className="text-white px-4 py-10 w-full">
+    <section className="text-white px-4 max-w-4xl">
     <div className="max-w-4xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-12 text-amber-600 underline underline-offset-8">
-        Skills
+    <h2 className="text-2xl sm:text-3xl font-bold text-amber-600 mb-8 text-center border-b border-gray-700 pb-2">
+      &lt;Skill/&gt;
       </h2>
   
       <motion.div

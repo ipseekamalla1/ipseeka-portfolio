@@ -10,7 +10,7 @@ const Resume = () => {
   const [activeTab, setActiveTab] = useState<'education' | 'skills' | 'experience'>('education');
 
   return (
-    <div className="flex flex-col bg-[#0d0d0d] text-gray-300 font-mono text-sm min-h-screen">
+    <div className="flex flex-col bg-[#0d0d0d] text-gray-300 text-sm min-h-screen mt-15">
       <div className="flex flex-1">
         {/* Sidebar */}
         <aside className="w-48 bg-[#1a1a1a] border-r border-gray-800 flex flex-col py-6 px-4 space-y-2">
@@ -48,7 +48,7 @@ const Resume = () => {
 
         {/* Main Tab Content */}
         <main className="flex-1 p-6 overflow-y-auto flex">
-          <div className="w-full">
+          <div className="w-200">
             {activeTab === 'education' && <Education />}
             {activeTab === 'skills' && <Skills />}
             {activeTab === 'experience' && <Experience />}
