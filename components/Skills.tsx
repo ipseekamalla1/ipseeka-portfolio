@@ -15,7 +15,7 @@ import {
 
 interface Tech {
   name: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 interface SkillGroup {
@@ -65,45 +65,46 @@ const itemVariants = {
 
 const Skills: React.FC = () => {
   return (
-    <section className="py-20 bg-[#000000] text-white font-mono">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-amber-600 underline underline-offset-8">
-           Skills 
-        </h2>
-
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {skills.map((group, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="bg-[#4c3c01] rounded-xl p-6 border border-gray-700 shadow-md hover:shadow-teal-400/30 transition-shadow"
-            >
-              <h3 className="text-2xl font-semibold text-amber-300 mb-4 text-center">
-                {group.category}
-              </h3>
-              <div className="flex flex-wrap justify-center gap-6">
-                {group.techs.map((tech, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.2, rotate: 2 }}
-                    className="flex flex-col items-center transition-transform duration-300 cursor-pointer"
-                  >
-                    <div className="text-5xl mb-2">{tech.icon}</div>
-                    <span className="text-base font-medium text-gray-300">{tech.name}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+    <section className="text-white font-mono px-4 py-10 w-full">
+    <div className="max-w-4xl mx-auto">
+      <h2 className="text-4xl font-bold text-center mb-12 text-amber-600 underline underline-offset-8">
+        Skills
+      </h2>
+  
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {skills.map((group, index) => (
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            className="bg-[#4c3c01] rounded-xl p-6 border border-gray-700 shadow-md hover:shadow-teal-400/30 transition-shadow"
+          >
+            <h3 className="text-2xl font-semibold text-amber-300 mb-4 text-center">
+              {group.category}
+            </h3>
+            <div className="flex flex-wrap justify-center gap-6">
+              {group.techs.map((tech, i) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ scale: 1.2, rotate: 2 }}
+                  className="flex flex-col items-center transition-transform duration-300 cursor-pointer"
+                >
+                  <div className="text-5xl mb-2">{tech.icon}</div>
+                  <span className="text-base font-medium text-gray-300">{tech.name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+  </section>
+  
   );
 };
 
