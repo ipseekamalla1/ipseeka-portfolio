@@ -1,12 +1,13 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa';
 
 const socials = [
-  { icon: <FaGithub />, path: 'https://github.com/yourusername' },
-  { icon: <FaLinkedin />, path: 'https://linkedin.com/in/yourusername' },
-  { icon: <FaTwitter />, path: 'https://twitter.com/yourusername' },
+  { icon: <FaGithub />, path: 'https://github.com/ipseekamalla1' },
+  { icon: <FaLinkedin />, path: 'https://www.linkedin.com/in/ipseeka-malla-971b23190/' },
+  
+  { icon: <FaStackOverflow />, path: 'https://stackoverflow.com/users/13639382/ipseeka-malla' } 
 ];
 
 const Social = ({ containerStyles, iconStyles }: { containerStyles: string; iconStyles: string }) => {

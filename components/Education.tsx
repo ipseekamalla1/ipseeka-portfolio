@@ -2,14 +2,16 @@ import { motion } from "framer-motion";
 
 const educationData = [
   {
-    duration: "January 2024 – Present",
+    duration: "January 2024 – April 2024",
     degree: "Web Development",
     institution: "Conestoga College",
+    gpa: "GPA: 3.73 / 4", 
+
   },
   {
     duration: "November 2016 – January 2022",
     degree: "Bachelors of Computer Engineering",
-    institution: "Khwopa Engineering College (Affiliated with Purbanchal University)",
+    institution: "Khwopa Engineering College",
     gpa: "GPA: 3.35 / 4",
   },
   {
@@ -21,7 +23,7 @@ const educationData = [
   {
     duration: "April 2004 – March 2014",
     degree: "School Leaving Certificate (SLC)",
-    institution: "",
+    institution: "St Mary's School",
     gpa: "79.6%",
   },
 ];
