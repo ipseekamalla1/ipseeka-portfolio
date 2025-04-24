@@ -58,10 +58,7 @@ const Resume = () => {
         </main>
       </div>
 
-      {/* Projects Always at Bottom */}
-      <div className="border-t border-gray-700 px-6 py-10">
-        <ProjectSection />
-      </div>
+     
     </div>
   );
 };

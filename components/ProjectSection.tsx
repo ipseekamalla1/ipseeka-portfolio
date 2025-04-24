@@ -1,50 +1,41 @@
 'use client';
-import React from "react";
-import { motion } from "framer-motion";
-import { FaCode } from "react-icons/fa";
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaCode, FaEye, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 
 const projects = [
   {
     title: "Banking App",
-    image: "/images/bank-project.png",
+    image: "/assets/photo.png",
     link: "https://github.com/yourusername/bank-app",
+    demo: "https://bank-app-demo.vercel.app",
+    description: "A full-stack banking app with account management, transactions, and analytics dashboard. Built using Next.js, Prisma, and PostgreSQL."
   },
   {
     title: "Garbage Classifier",
-    image: "/images/garbage-project.png",
+    image: "/assets/photo.png",
     link: "https://github.com/yourusername/garbage-classifier",
+    demo: "https://garbage-classifier-demo.vercel.app",
+    description: "A React app using machine learning to classify garbage into recyclable categories. Model based on Inception architecture."
   },
   {
     title: "Book Store",
-    image: "/images/bookstore.png",
+    image: "/assets/photo.png",
     link: "https://github.com/yourusername/bookstore",
-  },
+    demo: "https://bookstore-demo.vercel.app",
+    description: "An online bookstore built with WooCommerce, custom plugin development, and SEO optimization."
+  }
 ];
 
-// Typing animation for title
-const typingText = {
-  hidden: { width: 0 },
-  visible: {
-    width: "100%",
-    transition: {
-      duration: 2,
-      ease: "easeInOut",
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
+const typingText = { hidden: { width: 0 }, visible: { width: "100%", transition: { duration: 2, ease: "easeInOut" } } };
+const itemVariants = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
 
 const ProjectsSection: React.FC = () => {
+  const [activeProject, setActiveProject] = useState(null);
+
   return (
-    <section className="px-4 py-20 bg-[#000000] text-gray-300">
+    <section className="px-4 py-20 bg-[#000] text-gray-300 relative">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-2xl sm:text-3xl font-bold text-center border-b border-gray-700 pb-2 overflow-hidden whitespace-nowrap text-amber-400"
@@ -56,47 +47,118 @@ const ProjectsSection: React.FC = () => {
         </motion.h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
-          {projects.map((project, index) => (
+          {projects.map((project, idx) => (
             <motion.div
-              key={index}
-              className="relative group overflow-hidden rounded-lg shadow-xl border border-gray-700 bg-gray-900 hover:shadow-amber-400/30 transition-shadow duration-300"
+              key={idx}
+              className="relative group overflow-hidden rounded-2xl shadow-2xl border border-gray-700 bg-gray-900 hover:shadow-amber-400/30 transition-shadow duration-300"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={itemVariants}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute inset-0 flex items-center justify-center bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300"
-              >
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1], rotate: [0, 2, -2, 0] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
+              <div className="relative w-full h-64 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                <Image src={project.image} alt={project.title} fill className="object-cover" priority />
+              </div>
+
+              <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 gap-6">
+                <motion.a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2 }}
+                  className="p-3 bg-[#1a1a1a] rounded-full"
                 >
-                  <FaCode className="text-5xl text-amber-400 drop-shadow-lg" />
-                </motion.div>
-              </a>
-              <div className="absolute bottom-0 left-0 right-0 bg-[#1a1a1a] text-center py-2">
-                <motion.span
-                  className="text-amber-300 font-semibold tracking-wide"
+                  <FaCode className="text-2xl text-amber-400" />
+                </motion.a>
+                <motion.a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2 }}
+                  className="p-3 bg-[#1a1a1a] rounded-full"
+                >
+                  <FaExternalLinkAlt className="text-2xl text-amber-400" />
+                </motion.a>
+                <button
+                  onClick={() => setActiveProject(project)}
+                  className="p-3 bg-[#1a1a1a] rounded-full"
+                >
+                  <FaEye className="text-2xl text-amber-400" />
+                </button>
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 bg-[#111] bg-opacity-80 backdrop-blur-sm py-2">
+                <motion.h3
+                  className="text-amber-300 font-semibold tracking-wide text-center"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   {project.title}
-                </motion.span>
+                </motion.h3>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {activeProject && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveProject(null)}
+          >
+            <motion.div
+              className="bg-gray-900 rounded-2xl overflow-hidden max-w-3xl w-full shadow-2xl relative grid grid-cols-1 md:grid-cols-2"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative w-full h-64 md:h-full">
+                <Image
+                  src={activeProject.image}
+                  alt={activeProject.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="p-6 flex flex-col">
+                <button
+                  onClick={() => setActiveProject(null)}
+                  className="self-end text-gray-400 hover:text-amber-400 mb-4"
+                >
+                  <FaTimes size={20} />
+                </button>
+                <h3 className="text-2xl font-bold text-amber-400 mb-2">{activeProject.title}</h3>
+                <p className="text-gray-300 mb-6 flex-grow">{activeProject.description}</p>
+                <div className="flex gap-4">
+                  <a
+                    href={activeProject.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 border border-amber-400 text-amber-400 rounded-lg hover:bg-amber-400 hover:text-gray-900 transition"
+                  >
+                    View Code
+                  </a>
+                  <a
+                    href={activeProject.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 border border-amber-400 text-amber-400 rounded-lg hover:bg-amber-400 hover:text-gray-900 transition"
+                  >
+                    Live Demo
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

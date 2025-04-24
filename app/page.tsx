@@ -7,6 +7,8 @@ import Photo from "@/components/Photo"
 import Stats from "@/components/Stats";
 import Resume from "@/components/Resume";
 import Contact from "@/components/Contact";
+import ProjectSection from "@/components/ProjectSection";
+
 export default function Home() {
   return (
     <div className="h-full">
@@ -52,15 +54,20 @@ export default function Home() {
             <AnimatedSection id="resume">
             <Resume/>
           </AnimatedSection>
+          <AnimatedSection id="projects">
+  <div className="border-t border-gray-700 px-6 py-10">
+    <div className="lg:w-400 md:w-300 sm:w-100  mx-auto">
+      <ProjectSection />
+    </div>
+  </div>
+</AnimatedSection>
           <AnimatedSection id="contact">
             <Contact/>
           </AnimatedSection>
 
           
 
-          <AnimatedSection id="about">
-           About
-          </AnimatedSection>
+        
         </main>
       </div>
     </div>
