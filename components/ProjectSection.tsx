@@ -4,35 +4,52 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCode, FaEye, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 
-const projects = [
+type Project = {
+  title: string;
+  image: string;
+  link: string;
+  demo: string;
+  description: string;
+};
+
+const projects: Project[] = [
   {
     title: "Banking App",
     image: "/assets/photo.png",
     link: "https://github.com/yourusername/bank-app",
     demo: "https://bank-app-demo.vercel.app",
-    description: "A full-stack banking app with account management, transactions, and analytics dashboard. Built using Next.js, Prisma, and PostgreSQL."
+    description:
+      "A full-stack banking app with account management, transactions, and analytics dashboard. Built using Next.js, Prisma, and PostgreSQL.",
   },
   {
     title: "Garbage Classifier",
     image: "/assets/photo.png",
     link: "https://github.com/yourusername/garbage-classifier",
     demo: "https://garbage-classifier-demo.vercel.app",
-    description: "A React app using machine learning to classify garbage into recyclable categories. Model based on Inception architecture."
+    description:
+      "A React app using machine learning to classify garbage into recyclable categories. Model based on Inception architecture.",
   },
   {
     title: "Book Store",
     image: "/assets/photo.png",
     link: "https://github.com/yourusername/bookstore",
     demo: "https://bookstore-demo.vercel.app",
-    description: "An online bookstore built with WooCommerce, custom plugin development, and SEO optimization."
-  }
+    description:
+      "An online bookstore built with WooCommerce, custom plugin development, and SEO optimization.",
+  },
 ];
 
-const typingText = { hidden: { width: 0 }, visible: { width: "100%", transition: { duration: 2, ease: "easeInOut" } } };
-const itemVariants = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } };
+const typingText = {
+  hidden: { width: 0 },
+  visible: { width: "100%", transition: { duration: 2, ease: "easeInOut" } },
+};
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const ProjectsSection: React.FC = () => {
-  const [activeProject, setActiveProject] = useState(null);
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   return (
     <section className="px-4 py-20 bg-[#000] text-gray-300 relative">
@@ -57,7 +74,13 @@ const ProjectsSection: React.FC = () => {
               variants={itemVariants}
             >
               <div className="relative w-full h-64 overflow-hidden transition-transform duration-300 group-hover:scale-105">
-                <Image src={project.image} alt={project.title} fill className="object-cover" priority />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
 
               <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 gap-6">
@@ -67,6 +90,8 @@ const ProjectsSection: React.FC = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2 }}
                   className="p-3 bg-[#1a1a1a] rounded-full"
+                  aria-label="View Code on GitHub"
+                  title="View Code on GitHub"
                 >
                   <FaCode className="text-2xl text-amber-400" />
                 </motion.a>
@@ -76,12 +101,16 @@ const ProjectsSection: React.FC = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2 }}
                   className="p-3 bg-[#1a1a1a] rounded-full"
+                  aria-label="View Live Demo"
+                  title="View Live Demo"
                 >
                   <FaExternalLinkAlt className="text-2xl text-amber-400" />
                 </motion.a>
                 <button
                   onClick={() => setActiveProject(project)}
                   className="p-3 bg-[#1a1a1a] rounded-full"
+                  aria-label="View Project Details"
+                  title="View Project Details"
                 >
                   <FaEye className="text-2xl text-amber-400" />
                 </button>
@@ -131,11 +160,17 @@ const ProjectsSection: React.FC = () => {
                 <button
                   onClick={() => setActiveProject(null)}
                   className="self-end text-gray-400 hover:text-amber-400 mb-4"
+                  aria-label="Close Project Details"
+                  title="Close Project Details"
                 >
                   <FaTimes size={20} />
                 </button>
-                <h3 className="text-2xl font-bold text-amber-400 mb-2">{activeProject.title}</h3>
-                <p className="text-gray-300 mb-6 flex-grow">{activeProject.description}</p>
+                <h3 className="text-2xl font-bold text-amber-400 mb-2">
+                  {activeProject.title}
+                </h3>
+                <p className="text-gray-300 mb-6 flex-grow">
+                  {activeProject.description}
+                </p>
                 <div className="flex gap-4">
                   <a
                     href={activeProject.link}
