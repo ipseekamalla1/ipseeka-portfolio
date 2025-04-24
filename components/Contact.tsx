@@ -19,10 +19,10 @@ const Contact = () => {
 
     emailjs
       .send(
-        'service_your_service_id',
-        'template_your_template_id',
+        'service_feyedzt',
+        'template_mb3cg6t',
         formData,
-        'user_your_user_id'
+        'WPsPeR8GqC5BSs7sv'
       )
       .then(() => {
         setFormData({ name: '', email: '', message: '' });
