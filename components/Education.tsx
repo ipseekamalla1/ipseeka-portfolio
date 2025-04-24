@@ -28,7 +28,7 @@ const educationData = [
 
 export default function EducationSection() {
   return (
-    <section id="resume" className="px-4 py-20 bg-[#000000] text-gray-300 font-mono w-full">
+    <section id="resume" className="px-4 py-20 bg-[#000000] text-gray-300 w-full">
     <div className="max-w-4xl mx-auto">
       <h2 className="text-2xl sm:text-3xl font-bold text-amber-400 mb-8 text-center border-b border-gray-700 pb-2">
         Education
