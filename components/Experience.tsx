@@ -6,16 +6,11 @@ import { FaTerminal } from 'react-icons/fa';
 const experienceData = [
   {
     role: "QA Intern",
-    company: "XYZ IT Firm, Nepal",
-    duration: "June 2021 – Dec 2021",
+    company: "Novelty Technology, Nepal",
+    duration: "June 2022 – Dec 2022",
     description: "Performed manual testing, reported bugs, and assisted in improving QA documentation.",
-  },
-  {
-    role: "Part-time Developer",
-    company: "Freelance",
-    duration: "2023 – Present",
-    description: "Worked on various small-scale full-stack projects using MERN, Laravel, and .NET MVC.",
-  },
+  }
+  
 ];
 
 const headingVariant = {
