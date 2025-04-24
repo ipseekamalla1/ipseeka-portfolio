@@ -1,62 +1,77 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-// Links data with names and hrefs
 const links = [
-  {
-    name: "Home",
-    href: "/",
-  },
-  
-  {
-    name: "Resume",
-    href: "#resume",
-  },
-  {
-    name: "Projects",
-    href: "#projects",
-  },
-  
- 
-  {
-    name: "Contact",
-    href: "#contact",
-  },
-  
+  { name: 'Home', href: '/' },
+  { name: 'Resume', href: '#resume' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 const Navbar = () => {
   const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState<string>('home');
 
-  // Scroll to section function for internal links
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(id); // highlight on click too
     }
   };
 
-  return (
-    <nav className='flex gap-8'>
-      {links.map((link, index) => {
-        // Check if the link is an anchor (#) link to handle scroll
-        const isInternalLink = link.href.startsWith('#');
+  useEffect(() => {
+    const sectionIds = links
+      .filter(link => link.href.startsWith('#'))
+      .map(link => link.href.replace('#', ''));
 
-        return (
-          <Link
-            href={link.href}
+    const sectionElements = sectionIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    sectionElements.forEach(section => observer.observe(section));
+    return () => sectionElements.forEach(section => observer.unobserve(section));
+  }, []);
+
+  return (
+    <nav className="flex gap-8">
+      {links.map((link, index) => {
+        const isInternalLink = link.href.startsWith('#');
+        const sectionId = link.href.replace('#', '');
+        const isActive = isInternalLink
+          ? activeSection === sectionId
+          : pathname === link.href;
+
+        return isInternalLink ? (
+          <button
             key={index}
-            // Handle scroll behavior for internal anchor links
-            onClick={(e) => {
-              if (isInternalLink) {
-                e.preventDefault(); // Prevent default link behavior
-                scrollToSection(link.href.replace('#', '')); // Scroll to section
-              }
-            }}
-            className={`${link.href === pathname && !isInternalLink ? "text-amber-600 border-b-2 border-accent" : ""}
-              capitalize font-medium hover:text-amber-600 transition-all duration-300 ease-in-out`}
+            onClick={() => scrollToSection(sectionId)}
+            className={`capitalize font-medium transition-all duration-300 ease-in-out ${
+              isActive ? 'text-amber-600 underline' : 'hover:text-amber-600 text-white'
+            }`}
+          >
+            {link.name}
+          </button>
+        ) : (
+          <Link
+            key={index}
+            href={link.href}
+            className={`capitalize font-medium transition-all duration-300 ease-in-out ${
+              isActive ? 'text-amber-600 underline' : 'hover:text-amber-600 text-white'
+            }`}
           >
             {link.name}
           </Link>

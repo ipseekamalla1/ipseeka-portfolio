@@ -9,7 +9,7 @@ const Resume = () => {
   const [activeTab, setActiveTab] = useState<'education' | 'skills' | 'experience'>('education');
 
   return (
-    <div className="flex flex-col bg-[#0d0d0d] text-gray-300 text-lg min-h-screen mt-24">
+    <div className="flex flex-col bg-[#0d0d0d] text-gray-300 text-lg min-h-screen mt-34">
      
 
       <div className="flex flex-col md:flex-row flex-1">

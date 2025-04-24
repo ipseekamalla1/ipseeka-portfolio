@@ -6,8 +6,6 @@ import Image from 'next/image';
 
 const Photo = () => {
   return (
-    <div className="flex flex-col bg-[#0d0d0d] text-gray-300 text-lg min-h-screen mt-24">
-
     <div className="w-full h-full relative">
       <motion.div
         initial={{ opacity: 0 }}
@@ -69,7 +67,6 @@ const Photo = () => {
         </motion.svg>
 
       </motion.div>
-    </div>
     </div>
   );
 };
