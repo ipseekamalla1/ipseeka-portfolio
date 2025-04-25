@@ -6,7 +6,7 @@ export default function AnimatedSection({ children, id }: { children: React.Reac
   return (
     <motion.section
       id={id}
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen md:flex lg:flex items-center justify-center"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

@@ -8,6 +8,8 @@ const links = [
 
 
   { name: "Resume", href: "#resume" },
+  { name:"Projects", href:"#projects" },
+
   { name: "Contact", href: "#contact" },
 
 ];
@@ -28,39 +30,47 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
 
   {/* Sliding Menu */}
   <motion.div
-    initial={{ x: '100%' }}
-    animate={{ x: 0 }}
-    exit={{ x: '100%' }}
-    transition={{ duration: 0.3 }}
-    className="absolute top-0 right-0 w-3/4 h-full bg-white shadow-lg p-6 flex flex-col gap-6"
-  >
-    {/* Close Button */}
-    <div className="flex justify-start">
-      <button onClick={onClose} className="text-2xl font-bold text-black">
-        ✕
-      </button>
-    </div>
+  initial={{ x: '100%' }}
+  animate={{ x: 0 }}
+  exit={{ x: '100%' }}
+  transition={{ duration: 0.3 }}
+  className="absolute top-0 right-0 w-full h-full bg-amber-800 shadow-lg p-6 flex flex-col items-center justify-center gap-10"
+>
+  {/* Close Button */}
+  <div className="absolute top-4 left-4">
+    <button onClick={onClose} className="text-3xl font-bold text-white">
+      ✕
+    </button>
+  </div>
 
-    {/* Navigation Links */}
-    {links.map((link, index) => {
-      const isInternal = link.href.startsWith("#");
-      return (
-        <Link
-          href={link.href}
-          key={index}
-          onClick={(e) => {
-            if (isInternal) {
-              e.preventDefault();
-              scrollToSection(link.href.replace('#', ''));
-            }
-          }}
-          className="text-lg font-medium text-black hover:text-amber-600 transition"
-        >
-          {link.name}
-        </Link>
-      );
-    })}
-  </motion.div>
+  {/* Logo */}
+  <Link href="/" className="mb-4">
+    <h1 className="text-4xl font-bold text-white">
+      Ipseeka <span className="text-amber-300">.</span>
+    </h1>
+  </Link>
+
+  {/* Navigation Links */}
+  {links.map((link, index) => {
+    const isInternal = link.href.startsWith("#");
+    return (
+      <Link
+        href={link.href}
+        key={index}
+        onClick={(e) => {
+          if (isInternal) {
+            e.preventDefault();
+            scrollToSection(link.href.replace('#', ''));
+          }
+        }}
+        className="text-2xl font-semibold text-white hover:text-amber-300 transition"
+      >
+        {link.name}
+      </Link>
+    );
+  })}
+</motion.div>
+
 </div>
 
   );

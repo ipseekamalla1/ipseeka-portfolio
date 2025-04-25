@@ -59,7 +59,7 @@ export default function Home() {
 
           <AnimatedSection id="projects">
             <div className="border-t border-gray-700 px-6 py-10">
-              <div className="lg:w-400 md:w-200 sm:w-100 max-w-4xl mx-auto">
+              <div className="lg:w-400 md:w-200 sm:w-200  mx-auto">
                 <ProjectSection />
               </div>
             </div>

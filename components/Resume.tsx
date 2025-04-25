@@ -14,7 +14,7 @@ const Resume = () => {
 
       <div className="flex flex-col md:flex-row flex-1">
         {/* Tabs at Top on Mobile, Sidebar on Desktop */}
-        <aside className="w-full md:w-48 bg-[#1a1a1a] border-b md:border-b-0 md:border-r border-gray-800 flex flex-row md:flex-col py-2 md:py-6 px-4 space-x-2 md:space-x-0 md:space-y-2 overflow-x-auto">
+        <aside className="w-full md:w-48 sm:w-48 bg-[#1a1a1a] border-b md:border-b-0 md:border-r border-gray-800 flex flex-row md:flex-col py-2 md:py-6 px-4 space-x-2 md:space-x-0 md:space-y-2 overflow-x-auto">
           <button
             onClick={() => setActiveTab('education')}
             className={`text-left px-3 py-2 rounded-md  tracking-wide transition-all duration-200  ${

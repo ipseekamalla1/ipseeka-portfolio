@@ -24,7 +24,7 @@ const projects: Project[] = [
   {
     title: "AuroHome Ecommerce Website",
     image: "/assets/ecom-app.png",
-    link: "https://github.com/ipseekamalla1/aurahome", // Update if needed
+    link: "https://github.com/yourusername/aurohome-ecommerce", // Update if needed
     demo: "https://aurohome-demo.vercel.app", // Replace with your actual demo URL if different
     description:
       "A feature-rich ecommerce website built with PHP and Laravel, supporting product browsing, user authentication, cart management, and order processing. Designed with a focus on scalability and user-friendly experience.",
@@ -54,7 +54,7 @@ const ProjectsSection: React.FC = () => {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   return (
-    <section className="px-4 py-20 bg-[#000] text-gray-300 relative">
+    <section className="px-4 bg-[#000] text-gray-300 relative ">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-2xl sm:text-3xl font-bold text-center border-b border-gray-700 pb-2 overflow-hidden whitespace-nowrap text-amber-400"
