@@ -23,7 +23,7 @@ const Photo = () => {
           className="relative w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten"
         >
           <Image
-            src="/assets/Ipseeka.png"
+            src="/assets/resume.png"
             priority
             quality={100}
             fill
